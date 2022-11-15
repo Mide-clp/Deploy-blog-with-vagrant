@@ -18,9 +18,7 @@ Vagrant.configure("2") do |config|
       vb.memory = "512"
     end
     db.vm.network "private_network", ip: "192.168.56.20"
-#     db.vm.provision :docker
-#     db.vm.provision :docker_compose
-#     db.vm.provision "file", source: "docker-compose.yml", destination: "/docker-compose.yml"
+
     db.vm.provision "shell", inline: "sudo docker-compose -f /vagrant/docker-compose.yml up -d postgres"
   end
 
@@ -30,9 +28,7 @@ Vagrant.configure("2") do |config|
     website.vm.provider "virtualbox" do |vb|
       vb.memory = "512"
     end
-#      website.vm.network "private_network", ip: "192.168.56.10"
-#      website.vm.provision :docker
-#      website.vm.provision :docker_compose
+
      website.vm.provision "shell", inline: "sudo docker-compose -f /vagrant/docker-compose.yml up -d website"
   end
 
