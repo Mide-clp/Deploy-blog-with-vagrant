@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "website" do |website|
-    website.vm.box = "bento/ubuntu-16.04"
+    website.vm.box = "bento/ubuntu-20.04"
     website.vm.network "forwarded_port", guest: 9090, host: 8080
     website.vm.provider "virtualbox" do |vb|
       vb.memory = "512"
